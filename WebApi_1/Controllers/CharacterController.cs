@@ -34,7 +34,12 @@ namespace WebApi_1.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _characterService.GetCharacter(id));
+            ServiceResponse<GetCharacterDTO> response = await _characterService.GetCharacter(id);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
         }
 
         [HttpPost("create")]
