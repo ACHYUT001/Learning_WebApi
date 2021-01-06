@@ -1,3 +1,5 @@
+using WebApi_1.Data;
+
 namespace WebApi_1.Models
 {
     public class Character
@@ -11,6 +13,8 @@ namespace WebApi_1.Models
         public int Defense { get; set; } = 10;
 
         public RpgClass Class { get; set; } = RpgClass.Adventurer;
+
+        public User CharacterUser { get; set; }
 
 
 
