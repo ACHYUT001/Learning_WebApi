@@ -7,7 +7,7 @@ namespace WebApi_1.Services
 {
     public interface ICharacterService
     {
-        Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters();
+        Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters(int userId);
         Task<ServiceResponse<GetCharacterDTO>> GetCharacter(int id);
 
         Task<ServiceResponse<List<GetCharacterDTO>>> CreateCharacter(CreateCharacterDTO newCharacter);

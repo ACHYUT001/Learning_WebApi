@@ -28,9 +28,9 @@ namespace WebApi_1.Services
         };
 
 
-        public async Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters()
+        public async Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters(int userId)
         {
-            List<Character> dbCharacters = await _context.Characters.ToListAsync();
+            List<Character> dbCharacters = await _context.Characters.Where(c => c.CharacterUser.UserId == userId).ToListAsync();
             return new ServiceResponse<List<GetCharacterDTO>> { Data = (dbCharacters.Select(c => _mapper.Map<GetCharacterDTO>(c))).ToList() };
         }
 
