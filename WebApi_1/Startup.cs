@@ -33,6 +33,8 @@ namespace WebApi_1
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ICharacterService, CharacterService>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
 
         }
 
